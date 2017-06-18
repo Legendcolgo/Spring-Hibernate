@@ -11,7 +11,7 @@ public class Customer {
 
     //Add validation rule for this property
     @NotNull(message = "is required")
-    @Size(min = 1, message = "should be atleast 1 character long")
+    @Size(min = 2, message = "should be atleast 1 character long")
     private String lastName;
 
     public String getFirstName() {
