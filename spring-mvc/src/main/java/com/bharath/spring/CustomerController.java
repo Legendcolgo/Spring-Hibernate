@@ -25,6 +25,7 @@ public class CustomerController {
     public void initBinder(WebDataBinder webDataBinder) {
         //Trim the white spaces and if any field is having only white spaces, it will be trimmed to null.
         //This is done by enabling it to - true
+
         StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
 
         //This will be applied only for the "String" class not for any other data types
