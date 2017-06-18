@@ -30,6 +30,12 @@
 	<!--optional way to load a list of countries for the drop down list using a properties file-->
 	<util:properties id="countryOptions" location="file:/Users/bharathrajakumar/IdeaProjects/Udemy-Spring-Hibernate/spring-mvc/src/main/webapp/WEB-INF/countries.properties"></util:properties>
 
+	<!--Load custom error messages from the properties file-->
+	<bean id="messageSource"
+		  class="org.springframework.context.support.ResourceBundleMessageSource">
+
+		<property name="basenames" value="messages"></property>
+	</bean>
 </beans>
 
 

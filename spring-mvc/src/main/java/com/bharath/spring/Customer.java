@@ -4,6 +4,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.validation.constraints.Pattern;
 
 /**
  * Created by bharathrajakumar on 6/15/17.
@@ -16,10 +17,15 @@ public class Customer {
     @Size(min = 2, message = "should be atleast 1 character long")
     private String lastName;
 
-    @NotNull(message = "cannot be empty")
+    @NotNull(message = "is required")
     @Min(value = 0, message = "must be greater than equal to zero")
     @Max(value = 10, message = "must be less than equal to ten")
-    private int freePasses;
+    private Integer freePasses;
+
+
+    //Use regex to validate the field and throw the error when it doesnt match the pattern
+    @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "postal code should be either 5 char/digits long")
+    private String postalCode;
 
     public String getFirstName() {
         return firstName;
@@ -37,11 +43,19 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public int getFreePasses() {
+    public Integer getFreePasses() {
         return freePasses;
     }
 
-    public void setFreePasses(int freePasses) {
+    public void setFreePasses(Integer freePasses) {
         this.freePasses = freePasses;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 }

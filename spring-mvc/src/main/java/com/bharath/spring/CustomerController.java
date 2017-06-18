@@ -44,6 +44,8 @@ public class CustomerController {
     //BindingResult - Stores the result of the validation
     public String processForm(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult) {
 
+        System.out.println("Binding Result : " + bindingResult);
+
         if(bindingResult.hasErrors()) {
             return "customer-form";
         } else {
