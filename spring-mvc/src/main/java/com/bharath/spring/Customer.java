@@ -1,5 +1,7 @@
 package com.bharath.spring;
 
+import com.bharath.spring.validation.CourseCode;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -26,6 +28,10 @@ public class Customer {
     //Use regex to validate the field and throw the error when it doesnt match the pattern
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "postal code should be either 5 char/digits long")
     private String postalCode;
+
+    //Custom annotation is being used here - the default course code prefix is CSS
+    @CourseCode(value = "ECE", message = "must start with ECE")
+    private String courseCode;
 
     public String getFirstName() {
         return firstName;
@@ -57,5 +63,13 @@ public class Customer {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
     }
 }
