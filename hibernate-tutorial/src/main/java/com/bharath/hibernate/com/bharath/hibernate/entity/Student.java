@@ -1,9 +1,6 @@
 package com.bharath.hibernate.com.bharath.hibernate.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by bharathrajakumar on 6/18/17.
@@ -15,7 +12,9 @@ import javax.persistence.Table;
 public class Student {
 
     //@Id - The primary key of the table
+    //@GeneratedValue - Use mysql's auto increment to generate the id or primary key for each record tht gets inserted
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
