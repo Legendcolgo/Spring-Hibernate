@@ -6,7 +6,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -26,13 +25,22 @@ public class CustomerDaoImpl implements CustomerDao {
         //Get a hibernate session from the session factory
         Session currentSession = sessionFactory.getCurrentSession();
 
-        //Create a hibernate query
-        Query<Customer> listCustomerQuery = currentSession.createQuery("from Customer", Customer.class);
+        //Create a hibernate query and sort it by last name. Use the bean's property name rather than the table column name
+        Query<Customer> listCustomerQuery = currentSession.createQuery("from Customer order by lastName", Customer.class);
 
         //Execute the query and get the result set
         List<Customer> customerList = listCustomerQuery.getResultList();
 
         //Return the result set
         return customerList;
+    }
+
+    public void saveCustomer(Customer customer) {
+
+        //Get a hibernate session from the session factory
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        //Save the customer to the database
+        currentSession.save(customer);
     }
 }

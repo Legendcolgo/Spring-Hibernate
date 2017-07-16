@@ -26,6 +26,10 @@
     <div id="container">
         <div id="content">
 
+            <%--Add customer button--%>
+            <%--Make a call to /showFormForAdd which will invoke a controller for this mapping--%>
+            <input type="button" value="Add Customer" onclick="window.location.href='showFormForAdd'; return false;" class="add-button">
+
             <table>
                 <tr>
                     <th>First Name</th>
