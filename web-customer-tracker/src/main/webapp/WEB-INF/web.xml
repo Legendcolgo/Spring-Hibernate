@@ -6,6 +6,12 @@
 
 	<display-name>web-customer-tracker</display-name>
 
+	<!--Default page to load after the web app is deployed to tomcat-->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
 	<!-- Spring MVC Configs -->
 
 	 <!--Step 1: Configure Spring MVC Dispatcher Servlet-->
