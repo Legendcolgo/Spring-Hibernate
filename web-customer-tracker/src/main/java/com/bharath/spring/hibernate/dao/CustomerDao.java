@@ -8,7 +8,9 @@ import java.util.List;
  * Created by bharathrajakumar on 7/15/17.
  */
 public interface CustomerDao {
-    public List<Customer> getCustomers();
+    List<Customer> getCustomers();
 
-    public void saveCustomer(Customer customer);
+    void saveCustomer(Customer customer);
+
+    Customer getCustomer(int id);
 }

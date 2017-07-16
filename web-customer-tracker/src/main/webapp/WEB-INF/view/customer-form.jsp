@@ -30,6 +30,9 @@
 
         <%--This form basically maps to the /saveCustomer mapping request--%>
         <form:form action="saveCustomer" modelAttribute="customer" method="post">
+
+            <%--This field is needed to make sure that we are updating the correct customer when we click on the save button--%>
+            <form:hidden path="id"></form:hidden>
             <table>
                 <tbody>
                     <tr>

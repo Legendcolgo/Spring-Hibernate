@@ -8,7 +8,9 @@ import java.util.List;
  * Created by bharathrajakumar on 7/16/17.
  */
 public interface CustomerService {
-    public List<Customer> getCustomers();
+    List<Customer> getCustomers();
 
-    public void saveCustomer(Customer customer);
+    void saveCustomer(Customer customer);
+
+    Customer getCustomer(int id);
 }
