@@ -21,8 +21,6 @@ public class CustomerDaoImpl implements CustomerDao {
     @Autowired
     private SessionFactory sessionFactory;
 
-    //@Transactional - This annotation tells Spring to begin and end the transaction after calling this piece of code block
-    @Transactional
     public List<Customer> getCustomers() {
 
         //Get a hibernate session from the session factory

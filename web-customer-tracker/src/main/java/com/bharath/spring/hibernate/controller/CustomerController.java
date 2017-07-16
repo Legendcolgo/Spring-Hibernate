@@ -1,10 +1,11 @@
 package com.bharath.spring.hibernate.controller;
 
-import com.bharath.spring.hibernate.dao.CustomerDao;
 import com.bharath.spring.hibernate.entity.Customer;
+import com.bharath.spring.hibernate.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -16,14 +17,14 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController {
 
-    //Inject Customer DAO
+    //Inject Customer Service
     @Autowired
-    private CustomerDao customerDao;
+    private CustomerService customerService;
 
-    @RequestMapping("/list")
+    @GetMapping("/list")
     public String listCustomers(Model model) {
-        //Get list of customers from the DAO
-        List<Customer> customerList = customerDao.getCustomers();
+        //Get list of customers from the service
+        List<Customer> customerList = customerService.getCustomers();
 
         System.out.println(customerList);
 
