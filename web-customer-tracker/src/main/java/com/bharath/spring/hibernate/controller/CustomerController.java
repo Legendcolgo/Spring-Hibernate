@@ -63,4 +63,12 @@ public class CustomerController {
         //Send the model to the form
         return "customer-form";
     }
+
+    @GetMapping("/delete")
+    public String deleteCustomer(@RequestParam("customerId")int id) {
+        //Delete the cutomer id for the given primary key id
+        customerService.deleteCustomer(id);
+
+        return "redirect:/customer/list";
+    }
 }

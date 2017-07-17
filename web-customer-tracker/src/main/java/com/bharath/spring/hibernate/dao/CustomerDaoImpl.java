@@ -39,7 +39,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
         //Get a hibernate session from the session factory
         Session currentSession = sessionFactory.getCurrentSession();
-        
+
         //Save or Update - It will basically check if the primary key is null, if null it will treat it as a new cutomer
         //record else it will update the existing customer record for the given primary key
         currentSession.saveOrUpdate(customer);
@@ -54,5 +54,17 @@ public class CustomerDaoImpl implements CustomerDao {
         Customer customer = currentSession.get(Customer.class, id);
 
         return customer;
+    }
+
+    public void deleteCustomer(int id) {
+        //Get a hibernate session from the session factory
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        //Delete the customer record using the primary key from the database
+        Query deleteCustomerQuery = currentSession.createQuery("delete from Customer where id=:customerId");
+        deleteCustomerQuery.setParameter("customerId", id);
+
+        //Execute the query to delete the customer
+        deleteCustomerQuery.executeUpdate();
     }
 }

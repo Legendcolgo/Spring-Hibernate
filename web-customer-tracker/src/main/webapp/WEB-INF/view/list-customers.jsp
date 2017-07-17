@@ -44,12 +44,20 @@
                         <c:param name="customerId" value="${tempCustomer.id}"></c:param>
                     </c:url>
 
+                    <%--Create an delete link for the customer with customer id--%>
+                    <c:url var="deleteLink" value="/customer/delete">
+                        <c:param name="customerId" value="${tempCustomer.id}"></c:param>
+                    </c:url>
+
                     <tr>
                         <td>${tempCustomer.firstName}</td>
                         <td>${tempCustomer.lastName}</td>
                         <td>${tempCustomer.emailAddress}</td>
                         <td>
                            <a href="${updateLink}">Update</a>
+                            |
+                            <%--Java script code to show a pop up when we click on the delete links--%>
+                           <a href="${deleteLink}" onclick="if(!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>
