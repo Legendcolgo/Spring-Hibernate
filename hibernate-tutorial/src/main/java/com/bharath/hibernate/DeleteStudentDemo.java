@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 /**
  * Created by bharathrajakumar on 6/18/17.
  */
+@SuppressWarnings("JpaQlInspection")
 public class DeleteStudentDemo {
     public static void main(String args[]) {
         //Create session factory
